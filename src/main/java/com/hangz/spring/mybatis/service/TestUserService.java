@@ -19,4 +19,8 @@ public class TestUserService {
     public TestUser getById(Integer id) {
         return testUserMapper.selectByPrimaryKey(id);
     }
+
+    public TestUser test1(Integer id) {
+        return testUserMapper.test1(id);
+    }
 }

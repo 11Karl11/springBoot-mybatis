@@ -17,4 +17,5 @@ public interface TestUserMapper {
 
     int updateByPrimaryKey(TestUser record);
 
+    TestUser test1(Integer id);
 }

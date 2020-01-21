@@ -3,12 +3,23 @@
 <mapper namespace="com.hangz.spring.mybatis.mapper.TestUserMapper">
   <resultMap id="BaseResultMap" type="com.hangz.spring.mybatis.entity.TestUser">
     <!--@mbg.generated-->
-    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="email" jdbcType="VARCHAR" property="email" />
   </resultMap>
+  <resultMap id="test1" type="TestUser">
+    <result property="id" column="uid"></result>
+  </resultMap>
+
+  <resultMap id="testConstruct" type="TestUser">
+      <constructor>
+        <idArg column="uid" name="id" javaType="string"></idArg>
+        <arg column="username" name="username" javaType="string"></arg>
+      </constructor>
+  </resultMap>
+
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     id, username, `password`, address, email
@@ -98,4 +109,12 @@
       email = #{email,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="test1" resultMap="testConstruct">
+    select
+    id as uid,username,password,address,email
+    from test_user
+    where id=#{id}
+
+  </select>
+
 </mapper>

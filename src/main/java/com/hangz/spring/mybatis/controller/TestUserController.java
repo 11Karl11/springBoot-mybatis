@@ -26,6 +26,13 @@ public class TestUserController {
         return testUserService.getById(id);
     }
 
+    //测试简单的resultMap
+    @RequestMapping("/test1")
+    public TestUser test1(Integer id){
+
+        return testUserService.test1(id);
+    }
+
 
 
 }
