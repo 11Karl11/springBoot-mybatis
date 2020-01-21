@@ -16,4 +16,5 @@ public interface TestUserMapper {
     int updateByPrimaryKeySelective(TestUser record);
 
     int updateByPrimaryKey(TestUser record);
+
 }

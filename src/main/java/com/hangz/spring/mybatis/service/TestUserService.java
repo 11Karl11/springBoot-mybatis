@@ -1,5 +1,8 @@
 package com.hangz.spring.mybatis.service;
 
+import com.hangz.spring.mybatis.entity.TestUser;
+import com.hangz.spring.mybatis.mapper.TestUserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,5 +13,10 @@ import org.springframework.stereotype.Service;
 public class TestUserService {
 
 
+    @Autowired
+    private TestUserMapper testUserMapper;
 
+    public TestUser getById(Integer id) {
+        return testUserMapper.selectByPrimaryKey(id);
+    }
 }
