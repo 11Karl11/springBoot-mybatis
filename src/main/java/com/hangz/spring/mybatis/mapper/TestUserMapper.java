@@ -1,6 +1,7 @@
 package com.hangz.spring.mybatis.mapper;
 
 import com.hangz.spring.mybatis.entity.TestUser;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -18,4 +19,6 @@ public interface TestUserMapper {
     int updateByPrimaryKey(TestUser record);
 
     TestUser test1(Integer id);
+
+    TestUser test2(@Param("id") Integer id);
 }

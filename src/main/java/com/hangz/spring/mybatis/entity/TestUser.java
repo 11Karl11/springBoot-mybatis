@@ -14,6 +14,8 @@ public class TestUser {
 
     private String email;
 
+    private Role role;
+
 
     public TestUser(String id, String username) {
         this.id = id+"--------------";

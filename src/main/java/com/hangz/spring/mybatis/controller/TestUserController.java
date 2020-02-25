@@ -33,6 +33,12 @@ public class TestUserController {
         return testUserService.test1(id);
     }
 
+    //测试关联
+    @RequestMapping("/test1")
+    public TestUser test2(Integer id){
+        return testUserService.test2(id);
+    }
+
 
 
 }
