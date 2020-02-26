@@ -2,6 +2,8 @@ package com.hangz.spring.mybatis.entity;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class TestUser {
     private String id;
@@ -15,6 +17,8 @@ public class TestUser {
     private String email;
 
     private Role role;
+
+    private List<Role> roles;
 
 
     public TestUser(String id, String username) {

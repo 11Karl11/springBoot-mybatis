@@ -29,7 +29,31 @@
         <association property="role" javaType="Role">
             <id property="id" column="role_id"></id>
             <result property="name" column="role_name"></result>
+            <result property="userId" column="user_id"></result>
         </association>
+    </resultMap>
+
+    <resultMap id="test21" type="TestUser">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="password" column="password"></result>
+        <result property="address" column="address"></result>
+        <result property="email" column="email"></result>
+
+    </resultMap>
+
+    <resultMap id="test3" type="TestUser">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="password" column="password"></result>
+        <result property="address" column="address"></result>
+        <result property="email" column="email"></result>
+
+        <collection  property="roles" ofType="Role">
+            <id property="id" column="role_id"></id>
+            <result property="name" column="role_name"></result>
+            <result property="userId" column="user_id"></result>
+        </collection >
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -128,7 +152,7 @@
     where id=#{id}
 
   </select>
-    <select id="test2" resultType="com.hangz.spring.mybatis.entity.TestUser">
+    <select id="test2" resultMap="test2">
     
      SELECT
             u.id,
@@ -137,13 +161,47 @@
             u.address,
             u.email,
             r.id as 'role_id',
-            r.name as 'role_name'
+            r.name as 'role_name',
+            r.user_id
         FROM
             test_user u
-                LEFT JOIN role r ON u.id = ur.user_id
+                LEFT JOIN role r ON u.id = r.user_id
         where u.id=#{id}
 
 
   </select>
+    <select id="test3" resultMap="test3">
+
+     SELECT
+            u.id,
+            u.username,
+            u.password,
+            u.address,
+            u.email,
+            r.id as 'role_id',
+            r.name as 'role_name',
+            r.user_id
+        FROM
+            test_user u
+                LEFT JOIN role r ON u.id = r.user_id
+        where u.id=#{id}
+    </select>
+    <select id="test21" resultMap="test21">
+
+     SELECT
+            u.id,
+            u.username,
+            u.password,
+            u.address,
+            u.email,
+            r.id as 'role.id',
+            r.name as 'role.name',
+            r.user_id as 'role.userId'
+        FROM
+            test_user u
+                LEFT JOIN role r ON u.id = r.user_id
+        where u.id=#{id}
+
+    </select>
 
 </mapper>

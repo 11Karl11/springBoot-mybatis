@@ -3,6 +3,7 @@ package com.hangz.spring.mybatis.controller;
 import com.hangz.spring.mybatis.entity.TestUser;
 import com.hangz.spring.mybatis.service.TestUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,12 +34,23 @@ public class TestUserController {
         return testUserService.test1(id);
     }
 
-    //测试关联
-    @RequestMapping("/test1")
+    //测试关联一个对象1
+    @RequestMapping("/test2")
     public TestUser test2(Integer id){
         return testUserService.test2(id);
     }
 
+    //测试关联一个对象2
+    @RequestMapping("/test21")
+    public TestUser test21(Integer id){
+        return testUserService.test21(id);
+    }
+
+
+    @GetMapping("test3")
+    public TestUser test3(int id){
+        return testUserService.test3(id);
+    }
 
 
 }

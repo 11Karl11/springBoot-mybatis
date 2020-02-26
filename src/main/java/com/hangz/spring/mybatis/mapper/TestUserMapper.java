@@ -21,4 +21,8 @@ public interface TestUserMapper {
     TestUser test1(Integer id);
 
     TestUser test2(@Param("id") Integer id);
+
+    TestUser test3(int id);
+
+    TestUser test21(Integer id);
 }
