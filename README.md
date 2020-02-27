@@ -1,4 +1,4 @@
-# springBoot-mybatis
+# springBoot-mybatis(测试resultMap)
 springBoot integration  mybatis
 
 
