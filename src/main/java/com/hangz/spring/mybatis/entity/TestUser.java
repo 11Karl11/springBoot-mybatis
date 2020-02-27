@@ -2,6 +2,7 @@ package com.hangz.spring.mybatis.entity;
 
 import lombok.Data;
 
+import javax.persistence.Transient;
 import java.util.List;
 
 @Data
@@ -19,6 +20,10 @@ public class TestUser {
     private Role role;
 
     private List<Role> roles;
+
+
+    @Transient
+    private Integer userId;
 
 
     public TestUser(String id, String username) {

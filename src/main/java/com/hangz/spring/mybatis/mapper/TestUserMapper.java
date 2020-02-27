@@ -25,4 +25,6 @@ public interface TestUserMapper {
     TestUser test3(int id);
 
     TestUser test21(Integer id);
+
+    TestUser test4(Integer id);
 }

@@ -53,4 +53,11 @@ public class TestUserController {
     }
 
 
+    //关联一个属性
+    @GetMapping("test4")
+    public TestUser test4(Integer id){
+        return testUserService.test4(id);
+    }
+
+
 }

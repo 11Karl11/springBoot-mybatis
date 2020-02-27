@@ -56,6 +56,16 @@
         </collection >
     </resultMap>
 
+
+    <resultMap id="test4" type="TestUser">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="password" column="password"></result>
+        <result property="address" column="address"></result>
+        <result property="email" column="email"></result>
+        <result property="userId" column="user_id"></result>
+    </resultMap>
+
     <sql id="Base_Column_List">
         <!--@mbg.generated-->
         id, username, `password`, address, email
@@ -197,6 +207,21 @@
             r.id as 'role.id',
             r.name as 'role.name',
             r.user_id as 'role.userId'
+        FROM
+            test_user u
+                LEFT JOIN role r ON u.id = r.user_id
+        where u.id=#{id}
+
+    </select>
+    <select id="test4" resultMap="test4">
+
+     SELECT
+            u.id,
+            u.username,
+            u.password,
+            u.address,
+            u.email,
+            r.user_id as user_id
         FROM
             test_user u
                 LEFT JOIN role r ON u.id = r.user_id

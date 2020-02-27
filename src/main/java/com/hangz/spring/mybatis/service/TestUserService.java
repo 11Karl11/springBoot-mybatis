@@ -35,4 +35,8 @@ public class TestUserService {
     public TestUser test21(Integer id) {
         return testUserMapper.test21(id);
     }
+
+    public TestUser test4(Integer id) {
+        return testUserMapper.test4(id);
+    }
 }
