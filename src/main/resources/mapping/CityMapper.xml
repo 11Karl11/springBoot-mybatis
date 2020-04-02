@@ -21,7 +21,12 @@
     from city
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <select id="getAll" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List"/>
+      from city
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->
     delete from city
     where id = #{id,jdbcType=INTEGER}

@@ -7,7 +7,7 @@ import lombok.Getter;
  * Created on 2020-03-31 19:56
  */
 @Getter
-public class JsonResult2<T> {
+public class JsonResult<T> {
 
     private Integer code;
 
@@ -34,7 +34,7 @@ public class JsonResult2<T> {
      * @param code 返回码
      * @param status 返回状态值.
      */
-    private JsonResult2(ResultCode code, String status) {
+    private JsonResult(ResultCode code, String status) {
         this.code = code.code;
         if (InternationalUtils.isCN()) {
             this.message = code.cn;
@@ -51,17 +51,17 @@ public class JsonResult2<T> {
      * @param code 返回码
      * @param status 返回状态值.
      */
-    private JsonResult2(T data, ResultCode code, String status) {
+    private JsonResult(T data, ResultCode code, String status) {
         this(code, status);
         this.data = data;
     }
 
-    public static <T> JsonResult2<T> ok() {
-        return new JsonResult2<>(ResultCode.success, StatusCode.success.name());
+    public static <T> JsonResult<T> ok() {
+        return new JsonResult<>(ResultCode.success, StatusCode.success.name());
     }
 
-    public static <T> JsonResult2<T> ok(T data) {
-        return new JsonResult2<>(data, ResultCode.success, StatusCode.success.name());
+    public static <T> JsonResult<T> ok(T data) {
+        return new JsonResult<>(data, ResultCode.success, StatusCode.success.name());
     }
 
     /**
@@ -71,8 +71,8 @@ public class JsonResult2<T> {
      * @param resultCode {@link ResultCode}
      * @return json result
      */
-    public static <T> JsonResult2<T> fail(String hint, ResultCode resultCode) {
-        JsonResult2<T> res = new JsonResult2<>(resultCode, StatusCode.fail.name());
+    public static <T> JsonResult<T> fail(String hint, ResultCode resultCode) {
+        JsonResult<T> res = new JsonResult<>(resultCode, StatusCode.fail.name());
         res.hint = hint;
         return res;
     }
@@ -83,8 +83,8 @@ public class JsonResult2<T> {
      * @param resultCode {@link ResultCode}
      * @return fail json result
      */
-    public static <T> JsonResult2<T> fail(ResultCode resultCode) {
-        return new JsonResult2<>(resultCode, StatusCode.fail.name());
+    public static <T> JsonResult<T> fail(ResultCode resultCode) {
+        return new JsonResult<>(resultCode, StatusCode.fail.name());
     }
 
     /**
@@ -92,11 +92,11 @@ public class JsonResult2<T> {
      *
      * @return error json result
      */
-    public static <T> JsonResult2<T> error() {
-        return new JsonResult2<>(ResultCode.internal_server_error, StatusCode.error.name());
+    public static <T> JsonResult<T> error() {
+        return new JsonResult<>(ResultCode.internal_server_error, StatusCode.error.name());
     }
 
-    public static <T> JsonResult2<T> error(T data) {
-        return new JsonResult2<>(data, ResultCode.internal_server_error, StatusCode.error.name());
+    public static <T> JsonResult<T> error(T data) {
+        return new JsonResult<>(data, ResultCode.internal_server_error, StatusCode.error.name());
     }
 }

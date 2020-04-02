@@ -8,6 +8,7 @@ import lombok.Data;
 public class City implements Serializable {
 
     private static final long serialVersionUID = -4375807946335495127L;
+
     private Integer id;
 
     private String cityName;

@@ -8,6 +8,8 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author 谢郑伟
  * Created on 2020-03-31 14:33
@@ -39,5 +41,9 @@ public class CityService {
     public City get(Integer id) {
         City city = cityMapper.selectByPrimaryKey(id);
         return city;
+    }
+
+    public List<City> getAll() {
+        return cityMapper.getAll();
     }
 }

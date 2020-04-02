@@ -3,6 +3,8 @@ package com.hangz.spring.mybatis.mapper;
 import com.hangz.spring.mybatis.entity.City;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CityMapper {
 
@@ -18,4 +20,7 @@ public interface CityMapper {
     int updateByPrimaryKeySelective(City record);
 
     int updateByPrimaryKey(City record);
+
+    List<City> getAll();
+
 }
