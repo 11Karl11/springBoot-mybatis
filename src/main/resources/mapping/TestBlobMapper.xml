@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hangz.spring.mybatis.mapper.TestBlobMapper">
+  <resultMap id="BaseResultMap" type="com.hangz.spring.mybatis.entity.TestBlob">
+    <!--@mbg.generated-->
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="blob_test" jdbcType="BLOB" property="blobTest" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hangz.spring.mybatis.entity.TestBlob">
+    <!--@mbg.generated-->
+    insert into test_blob (id, blob_test)
+    values (#{id,jdbcType=INTEGER}, #{blobTest,jdbcType=BLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hangz.spring.mybatis.entity.TestBlob">
+    <!--@mbg.generated-->
+    insert into test_blob
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="blobTest != null">
+        blob_test,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="blobTest != null">
+        #{blobTest,jdbcType=BLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="getById" resultType="com.hangz.spring.mybatis.entity.TestBlob">
+    select id,blob_test
+    from test_blob
+    where id=#{id}
+  </select>
+</mapper>
