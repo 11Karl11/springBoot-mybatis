@@ -12,6 +12,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author karl xie
@@ -68,6 +70,18 @@ public class TestBlobServiceImpl implements TestBlobService {
              students= (List<Student>) byte2obj(testBlob.getBlobTest());
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        List<Student> collect = students.stream().filter(student -> student.getAge() != 0).sorted().collect(Collectors.toList());
+        Map<Integer, List<Student>> collect1 = collect.stream().collect(Collectors.groupingBy(Student::getAge));
+        collect1.forEach((k,v)->{
+            Student student = v.get(0);
+
+        });
+        Long time=0L;
+        for (int i=0;i<students.size();i=i+2){
+            Student student1 = students.get(i);
+            Student student2 = students.get(i+1);
+
         }
         return students;
     }
