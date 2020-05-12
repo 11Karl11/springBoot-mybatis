@@ -117,6 +117,13 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>com.madgag</groupId>
+            <artifactId>animated-gif-lib</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+
 
     </dependencies>
 
