@@ -21,3 +21,8 @@ spring:
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.hangz.spring. .entity
+
+#整合mybatis 显示打印sql以及参数（最重要）
+logging:
+  level:
+    com.hangz.spring.mybatis.mapper: debug
