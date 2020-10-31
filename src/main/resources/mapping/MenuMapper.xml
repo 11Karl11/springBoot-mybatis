@@ -7,6 +7,8 @@
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="url" jdbcType="VARCHAR" property="url"/>
         <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
+        <result column="num1" jdbcType="INTEGER" property="num1"/>
+        <result column="num2" jdbcType="INTEGER" property="num2"/>
         <collection property="childMenu" ofType="Menu" select="test1"  column="{parentId=id}">
         </collection>
     </resultMap>
@@ -68,5 +70,10 @@
             </choose>
         </where>
 
+    </select>
+
+    <select id="test9" resultMap="BaseResultMap">
+        select id,name,#{a} as num1
+        from menu
     </select>
 </mapper>

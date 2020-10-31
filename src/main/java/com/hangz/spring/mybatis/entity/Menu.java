@@ -14,5 +14,9 @@ public class Menu {
 
     private Integer parentId;
 
+    private Integer num1;
+
+    private Integer num2;
+
     private List<Menu> childMenu;
 }

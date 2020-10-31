@@ -21,4 +21,9 @@ public class MenuService {
     public List<Menu> test1(Integer parentId) {
         return menuMapper.test1(parentId);
     }
+
+    public List<Menu> test9() {
+        List<Menu> menus = menuMapper.test9(1);
+        return menus;
+    }
 }

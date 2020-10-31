@@ -2,9 +2,9 @@ server:
   port: 8080
 spring:
   datasource:
-    username: ruhr
+    username: ruhr_new
     password: RUHR@007mysql
-    url: jdbc:mysql://192.168.0.104:3306/aaatest?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://192.168.0.41:3306/ruhr_cloud?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     driver-class-name:  com.mysql.cj.jdbc.Driver
   redis:
     lettuce:

@@ -14,4 +14,6 @@ public interface MenuMapper {
 
     List<Menu> test1(@Param("parentId") Integer parentId);
 
+    List<Menu> test9(Integer a);
+
 }
